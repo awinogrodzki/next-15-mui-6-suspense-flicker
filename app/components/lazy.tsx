@@ -4,8 +4,12 @@ export function Loader() {
   return <div>Loading...</div>;
 }
 
-export const LazyA = lazy(() => import("./A"));
-export const LazyB = lazy(() => import("./B"));
-export const LazyC = lazy(() => import("./C"));
-export const LazyD = lazy(() => import("./D"));
-export const LazyE = lazy(() => import("./E"));
+function delay() {
+  return new Promise((resolve) => setTimeout(resolve, 500));
+}
+
+export const LazyA = lazy(() => delay().then(() => import("./A")));
+export const LazyB = lazy(() => delay().then(() => import("./B")));
+export const LazyC = lazy(() => delay().then(() => import("./C")));
+export const LazyD = lazy(() => delay().then(() => import("./D")));
+export const LazyE = lazy(() => delay().then(() => import("./E")));
