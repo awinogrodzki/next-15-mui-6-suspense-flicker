@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import { CssVarsProvider } from "@mui/material/styles";
 import "./globals.css";
+import theme from "./theme";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        <AppRouterCacheProvider>
+          <CssVarsProvider theme={theme}>{children}</CssVarsProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

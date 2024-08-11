@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Items } from "./components/Items";
 
 export default function Home() {
   return (
@@ -21,6 +22,12 @@ export default function Home() {
           </li>
           <li>Save and see your changes instantly.</li>
         </ol>
+
+        <div>
+          <b>Tree:</b>
+          <br />
+          <Items />
+        </div>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
