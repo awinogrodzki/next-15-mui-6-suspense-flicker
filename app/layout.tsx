@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 import { CssVarsProvider } from "@mui/material/styles";
 import "./globals.css";
 import theme from "./theme";
@@ -28,6 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <AppRouterCacheProvider>
+          <InitColorSchemeScript />
           <CssVarsProvider theme={theme}>{children}</CssVarsProvider>
         </AppRouterCacheProvider>
       </body>
