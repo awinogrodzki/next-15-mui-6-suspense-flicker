@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <AppRouterCacheProvider>
-          <InitColorSchemeScript />
+          <InitColorSchemeScript attribute="[data-scheme-%s]" />
           <CssVarsProvider theme={theme}>{children}</CssVarsProvider>
         </AppRouterCacheProvider>
       </body>
