@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { LazyA, LazyB, LazyC, LazyD, LazyE, Loader } from "./lazy";
 import { Item as ItemUnion, ItemType } from "./types";
 import Box from "@mui/material/Box";
@@ -33,8 +33,12 @@ function getColor(type: ItemType) {
 export function Item({ item }: ItemProps) {
   const Component = map[item.type];
 
+  useEffect(() => {
+    console.log(`Mount Item.${item.type}`);
+  }, []);
+
   return (
-    <Box bgcolor={getColor(item.type)} className="p-1">
+    <Box color="text.primary" bgcolor={getColor(item.type)} className="p-1">
       <div className="p-1">
         <Suspense fallback={<Loader />}>
           <Component />
